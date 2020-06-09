@@ -1,0 +1,9 @@
+C:\Users\SAVS\source\repos\8 task\Task 8\bin\Debug\Task 8.exe.config
+C:\Users\SAVS\source\repos\8 task\Task 8\bin\Debug\Task 8.exe
+C:\Users\SAVS\source\repos\8 task\Task 8\bin\Debug\Task 8.pdb
+C:\Users\SAVS\source\repos\8 task\Task 8\obj\Debug\Task 8.csprojAssemblyReference.cache
+C:\Users\SAVS\source\repos\8 task\Task 8\obj\Debug\Task_8.Form1.resources
+C:\Users\SAVS\source\repos\8 task\Task 8\obj\Debug\Task_8.Properties.Resources.resources
+C:\Users\SAVS\source\repos\8 task\Task 8\obj\Debug\Task 8.csproj.GenerateResource.cache
+C:\Users\SAVS\source\repos\8 task\Task 8\obj\Debug\Task 8.exe
+C:\Users\SAVS\source\repos\8 task\Task 8\obj\Debug\Task 8.pdb

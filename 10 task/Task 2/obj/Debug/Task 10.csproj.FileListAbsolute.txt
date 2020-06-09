@@ -1,0 +1,9 @@
+C:\Users\SAVS\source\repos\10 task\Task 2\bin\Debug\Task 2.exe.config
+C:\Users\SAVS\source\repos\10 task\Task 2\bin\Debug\Task 2.exe
+C:\Users\SAVS\source\repos\10 task\Task 2\bin\Debug\Task 2.pdb
+C:\Users\SAVS\source\repos\10 task\Task 2\obj\Debug\Task 10.csprojAssemblyReference.cache
+C:\Users\SAVS\source\repos\10 task\Task 2\obj\Debug\Task_10.Form1.resources
+C:\Users\SAVS\source\repos\10 task\Task 2\obj\Debug\Task_2.Properties.Resources.resources
+C:\Users\SAVS\source\repos\10 task\Task 2\obj\Debug\Task 10.csproj.GenerateResource.cache
+C:\Users\SAVS\source\repos\10 task\Task 2\obj\Debug\Task 2.exe
+C:\Users\SAVS\source\repos\10 task\Task 2\obj\Debug\Task 2.pdb

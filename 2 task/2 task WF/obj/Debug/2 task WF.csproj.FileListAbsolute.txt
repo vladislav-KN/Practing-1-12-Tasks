@@ -1,0 +1,9 @@
+C:\Users\SAVS\source\repos\2 task\2 task WF\bin\Debug\2 task WF.exe.config
+C:\Users\SAVS\source\repos\2 task\2 task WF\bin\Debug\2 task WF.exe
+C:\Users\SAVS\source\repos\2 task\2 task WF\bin\Debug\2 task WF.pdb
+C:\Users\SAVS\source\repos\2 task\2 task WF\obj\Debug\2 task WF.csprojAssemblyReference.cache
+C:\Users\SAVS\source\repos\2 task\2 task WF\obj\Debug\_2_task_WF.Form1.resources
+C:\Users\SAVS\source\repos\2 task\2 task WF\obj\Debug\_2_task_WF.Properties.Resources.resources
+C:\Users\SAVS\source\repos\2 task\2 task WF\obj\Debug\2 task WF.csproj.GenerateResource.cache
+C:\Users\SAVS\source\repos\2 task\2 task WF\obj\Debug\2 task WF.exe
+C:\Users\SAVS\source\repos\2 task\2 task WF\obj\Debug\2 task WF.pdb

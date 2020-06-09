@@ -1,0 +1,9 @@
+C:\Users\SAVS\source\repos\1 task\Window\bin\Debug\Window.exe.config
+C:\Users\SAVS\source\repos\1 task\Window\bin\Debug\Window.exe
+C:\Users\SAVS\source\repos\1 task\Window\bin\Debug\Window.pdb
+C:\Users\SAVS\source\repos\1 task\Window\obj\Debug\Window.csprojAssemblyReference.cache
+C:\Users\SAVS\source\repos\1 task\Window\obj\Debug\Window.Form1.resources
+C:\Users\SAVS\source\repos\1 task\Window\obj\Debug\Window.Properties.Resources.resources
+C:\Users\SAVS\source\repos\1 task\Window\obj\Debug\Window.csproj.GenerateResource.cache
+C:\Users\SAVS\source\repos\1 task\Window\obj\Debug\Window.exe
+C:\Users\SAVS\source\repos\1 task\Window\obj\Debug\Window.pdb
