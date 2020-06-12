@@ -21,15 +21,26 @@ namespace Task_10
         {
             char number = e.KeyChar;
             char chr;
+            char notMin = ' ';
             try
             {
                 chr = textBox1.Text[textBox1.SelectionStart-1];
+
             }
             catch
             {
                 chr = ' ';
             }
-            if (chr !=' ' && number =='-')
+            try
+            {
+                notMin = textBox1.Text[textBox1.SelectionStart];
+
+            }
+            catch
+            {
+                notMin = ' ';
+            }
+            if ((chr !=' ' || notMin == '-') && number =='-' )
                 e.Handled = true;
             else if(!Char.IsDigit(chr) && number == ' ')
                 e.Handled = true;
@@ -56,7 +67,8 @@ namespace Task_10
                 {
                     strs = textBox1.Text.Split(' ');
                     treeElements = new int[strs.Length];
-                    for (int i = 0; i < strs.Length; i++)
+                    int i = 0;
+                    for (; i < strs.Length; i++)
                     {
                         ok = int.TryParse(strs[i], out treeElements[i]);
                         if (!ok)
@@ -66,19 +78,22 @@ namespace Task_10
                     }
                     if (!ok)
                     {
-                        MessageBox.Show("Непредвиденная ошибка", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                        MessageBox.Show($"Ошибка ввода числа {strs[i]}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
                     }
                 } while (!ok);
-                Tree tree = new Tree(treeElements);
-                int level;
-                List<Point> list;
-                tree.Run(out level, out list);
-                label2.Text = "Количество уровней: " + level;
-                for (int i = 1; i <= level; i++)
+                if (ok)
                 {
-                    int num = (from c in list select c).Where(c => c.Level == i).Count();
-                    textBox2.Text += $"Количество элементов на {i}-м ярусе: " + num + Environment.NewLine;
+                    Tree tree = new Tree(treeElements);
+                    int level;
+                    List<Point> list;
+                    tree.Run(out level, out list);
+                    label2.Text = "Количество уровней: " + level;
+                    for (int i = 1; i <= level; i++)
+                    {
+                        int num = (from c in list select c).Where(c => c.Level == i).Count();
+                        textBox2.Text += $"Количество элементов на {i}-м ярусе: " + num + Environment.NewLine;
+                    }
                 }
             }
         }

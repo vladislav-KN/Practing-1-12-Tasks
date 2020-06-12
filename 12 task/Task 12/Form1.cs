@@ -31,35 +31,43 @@ namespace Task_12
                 right = null;
 
             }
-            public void insert(Tree aTree, ref int comparisons, ref int shipment)
+
+            public void insert(Tree aTree, ref ulong comparisons)
             {
-                if (aTree.data < data)
-                {
-                    comparisons++;
-                    if (left != null) left.insert(aTree, ref comparisons, ref shipment);
+
+                    if (Greater2( aTree.data, this.data, ref comparisons))
+
+                    {
+                        if (left != null) left.insert(aTree, ref comparisons);
+                        else
+                        {
+                            left = aTree;
+                        }
+                    }
                     else
                     {
-                        left = aTree;
-                        shipment++;
+                        if (right != null) right.insert(aTree, ref comparisons);
+                        else
+                        {
+                            right = aTree;
+                        }
                     }
                 }
-                else
+            static bool Greater2(int a, int b, ref ulong cn)
+            {
+                cn++;
+                if (a < b)
                 {
-                    comparisons++;
-                    if (right != null) right.insert(aTree, ref comparisons, ref shipment);
-                    else
-                    {
-                        right = aTree;
-                        shipment++;
-                    }
+                    return true;
                 }
+                return false;
             }
-            public void Run(Tree visitor, Form1 form)
+            public void Run(Tree visitor, TextBox form)
             {
                 if (visitor != null)
                 {
                     Run(visitor.left, form);
-                    form.textBox3.Text += visitor;
+                    form.Text += visitor;
                     Run(visitor.right, form);
                 }
             }
@@ -72,7 +80,6 @@ namespace Task_12
         public Form1()
         {
             InitializeComponent();
-            comboBox1.SelectedItem = "Упорядоченный по возрастанию";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -84,8 +91,18 @@ namespace Task_12
         {
 
         }
-       
-        static int[] SortSH(int[] mass, out int comparisons, out int shipment)
+        static bool Greater(int a, int b, ref ulong cn)
+        {
+            cn++;
+            if (a > b)
+            {
+                return true;
+            }
+            return false;
+        }
+        
+
+        static int[] SortSH(int[] mass, out ulong comparisons, out ulong shipment)
         {
             int size = mass.Length;
             comparisons = 0;
@@ -93,25 +110,13 @@ namespace Task_12
             for (int step = size / 2; step > 0; step /= 2)
                 for (int i = step; i < size; i++)
                 {
-
-                    int j = i - step;
-                    while (true)
+                    for (int j = i - step; j >= 0 && Greater(mass[j] , mass[j + step], ref comparisons); j -= step, shipment++)
                     {
-                        if (j >= 0 && mass[j] > mass[j + step])
-                        {
 
-                            int tmp = mass[j];
-                            mass[j] = mass[j + step];
-                            mass[j + step] = tmp;
-                            shipment++;
-                            comparisons++;
-                            j -= step;
-                        }
-                        else
-                        {
-                            comparisons++;
-                            break;
-                        }
+                        int tmp = mass[j];
+                        mass[j] = mass[j + step];
+                        mass[j + step] = tmp;
+                       
                     }
 
                 }
@@ -122,65 +127,151 @@ namespace Task_12
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
+            textBox8.Text = "";
+            textBox9.Text = "";
             Random rnd = new Random();
-            int n = (int) numericUpDown1.Value;
+            int n = (int)numericUpDown1.Value;
             int[] mass1 = new int[n];
             int[] mass1Copy = new int[n];
+            int[] mass2 = new int[n];
+            int[] mass2Copy = new int[n];
+            int[] mass3 = new int[n];
+            int[] mass3Copy = new int[n];
             for (int i = 0; i < n; i++)
             {
-                int j = rnd.Next(-1000, 1001);
+                int j = rnd.Next(-n, n+1);
                 mass1[i] = j;
                 mass1Copy[i] = j;
+                mass2[i] = j;
+                mass2Copy[i] = j;
+                mass3[i] = j;
+                mass3Copy[i] = j;
             }
-            switch (comboBox1.SelectedItem)
+            Array.Sort(mass2);
+            Array.Sort(mass3);
+            Array.Reverse(mass3);
+            Array.Sort(mass2Copy);
+            Array.Sort(mass3Copy);
+            Array.Reverse(mass3Copy);
+            if (!checkBox1.Checked)
             {
-                case "Упорядоченный по возрастанию":
-                    Array.Sort(mass1);
-                    break;
-                case "Упорядоченный по убыванию":
-                    int last = mass1.Length;
-
-                    for (bool sorted = last == 0; !sorted; --last)
-                    {
-                        sorted = true;
-                        for (int i = 1; i < last; ++i)
-                        {
-                            if (mass1[i - 1] < mass1[i])
-                            {
-                                sorted = false;
-
-                                int tmp = mass1[i - 1];
-                                mass1[i - 1] = mass1[i];
-                                mass1[i] = tmp;
-                            }
-                        }
-                    }
-                    break;
+                foreach (int wright in mass1)
+                {
+                    textBox1.Text += wright + " ";
+                }
+                foreach (int wright in mass2)
+                {
+                    textBox6.Text += wright + " ";
+                }
+                foreach (int wright in mass3)
+                {
+                    textBox9.Text += wright + " ";
+                }
             }
-            foreach (int wright in mass1)
-            {
-                textBox1.Text += wright + " ";
-            }
+            #region не сортированный 
             Tree res = new Tree(mass1Copy[0]);
             DateTime dateStart = new DateTime();
             DateTime dateEnd = new DateTime();
-            int comparisons; int shipment;
+            ulong comparisons; ulong shipment;
             dateStart = DateTime.Now;
             SortSH(mass1, out comparisons, out shipment);
             dateEnd = DateTime.Now;
-            foreach (int wright in mass1)
+            if (!checkBox1.Checked)
             {
-                textBox2.Text += wright + " ";
+                foreach (int wright in mass1)
+                {
+                    textBox2.Text += wright + " ";
+                }
             }
-            label3.Text = $"Для {n} сортировка Шелла длилась {dateEnd - dateStart} времени с количеством сравнений {comparisons} и числом перестановок {shipment}";
+            long time = dateEnd.Ticks - dateStart.Ticks;
+             
+            label3.Text = $"Для {n} сортировка Шелла длилась  {time} времени с количеством сравнений {comparisons} и числом перестановок {shipment}";
+            comparisons = 0;
+            shipment = 0;
+            dateStart = DateTime.Now;
+
+                for (int i = 1; i < n; i++)
+                    res.insert(new Tree(mass1Copy[i]), ref comparisons);
+
+            dateEnd = DateTime.Now;
+            if (!checkBox1.Checked)
+            {
+                res.Run(res, textBox3);
+            }
+            time =dateEnd.Ticks - dateStart.Ticks;
+            label4.Text = $"Для {n} сортировка Деревом поиска {time} времени с количеством сравнений {comparisons}";
+            #endregion
+            #region сортированный по возрастанию
+            Tree res2 = new Tree(mass2Copy[0]);
+            dateStart = new DateTime();
+            dateEnd = new DateTime();
+            dateStart = DateTime.Now;
+            SortSH(mass2, out comparisons, out shipment);
+            dateEnd = DateTime.Now;
+            if (!checkBox1.Checked)
+            {
+                foreach (int wright in mass2)
+                {
+                    textBox5.Text += wright + " ";
+                }
+            }
+            time =dateEnd.Ticks - dateStart.Ticks;
+
+            label6.Text = $"Для {n} сортировка Шелла длилась {time} времени с количеством сравнений {comparisons} и числом перестановок {shipment}";
             comparisons = 0;
             shipment = 0;
             dateStart = DateTime.Now;
             for (int i = 1; i < n; i++)
-                res.insert(new Tree(mass1Copy[i]), ref comparisons, ref shipment);
+                if (i > 9538)
+                {
+                    res2.insert(new Tree(mass2Copy[i]), ref comparisons);
+                }
+                else
+                {
+                    res2.insert(new Tree(mass2Copy[i]), ref comparisons);
+                }
+                    dateEnd = DateTime.Now;
+             if (!checkBox1.Checked)
+            {
+                res2.Run(res2, textBox4);
+            }
+            time =dateEnd.Ticks - dateStart.Ticks;
+            label5.Text = $"Для {n} сортировка Деревом поиска {time} времени с количеством сравнений {comparisons}";
+            #endregion
+            #region сортированный по возрастанию
+            Tree res3 = new Tree(mass3Copy[0]);
+            dateStart = new DateTime();
+            dateEnd = new DateTime();
+            dateStart = DateTime.Now;
+            SortSH(mass3, out comparisons, out shipment);
             dateEnd = DateTime.Now;
-            res.Run(res,this);
-            label4.Text = $"Для {n} сортировка Деревом поиска {dateEnd - dateStart} времени с количеством сравнений {comparisons} и числом перестановок {shipment}";
+            if (!checkBox1.Checked)
+            {
+                foreach (int wright in mass2)
+                {
+                    textBox8.Text += wright + " ";
+                }
+            }
+            time =dateEnd.Ticks - dateStart.Ticks;
+            label9.Text = $"Для {n} сортировка Шелла длилась {time} времени с количеством сравнений {comparisons} и числом перестановок {shipment}";
+            comparisons = 0;
+            shipment = 0;
+            dateStart = DateTime.Now;
+
+            for (int i = 1; i < n; i++)
+                res3.insert(new Tree(mass3Copy[i]), ref comparisons);
+            dateEnd = DateTime.Now;
+            if (!checkBox1.Checked)
+            {
+            res3.Run(res3, textBox7);
+            }
+            time =dateEnd.Ticks - dateStart.Ticks;
+            label8.Text = $"Для {n} сортировка Деревом поиска {time} времени с количеством сравнений {comparisons}";
+            #endregion
         }
     }
 }

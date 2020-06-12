@@ -48,42 +48,22 @@ namespace Task_11
                     {
                         if (rusAS[j] == s[i])
                         {
-                            int ind = j;
-                            int tmp = nRu;
+                            int ind = j + nRu;
                             ok = true;
-                            while (tmp != 0)
+                            if (ind > 32)
                             {
-                                if (ind == 32)
-                                {
-                                    ind = 0;
-                                    tmp--;
-                                }
-                                else
-                                {
-                                    ind++;
-                                    tmp--;
-                                }
+                                ind -= 33;
                             }
                             ret += rusAS[ind];
                             break;
                         }
                         else if (rusAB[j] == s[i])
                         {
-                            int ind = j;
-                            int tmp = nRu;
+                            int ind = j + nRu;
                             ok = true;
-                            while (tmp != 0)
+                            if (ind > 32)
                             {
-                                if (ind == 32)
-                                {
-                                    ind = 0;
-                                    tmp--;
-                                }
-                                else
-                                {
-                                    ind++;
-                                    tmp--;
-                                }
+                                ind -= 33;
                             }
                             ret += rusAB[ind];
                             break;
@@ -93,42 +73,22 @@ namespace Task_11
                     {
                         if (engAS[j] == s[i])
                         {
-                            int ind = j;
-                            int tmp = nRu;
+                            int ind = j + nEn;
                             ok = true;
-                            while (tmp != 0)
+                            if (ind > 25)
                             {
-                                if (ind == 25)
-                                {
-                                    ind = 0;
-                                    tmp--;
-                                }
-                                else
-                                {
-                                    ind++;
-                                    tmp--;
-                                }
+                                ind -= 26;
                             }
                             ret += engAS[ind];
                             break;
                         }
                         else if (engAB[j] == s[i])
                         {
-                            int ind = j;
-                            int tmp = nRu;
+                            int ind = j+nEn;
                             ok = true;
-                            while (tmp != 0)
+                            if (ind>25)
                             {
-                                if (ind == 25)
-                                {
-                                    ind = 0;
-                                    tmp--;
-                                }
-                                else
-                                {
-                                    ind++;
-                                    tmp--;
-                                }
+                                ind -= 26;
                             }
                             ret += engAB[ind];
                             break;
@@ -141,6 +101,108 @@ namespace Task_11
                 }
                 textBox1.Text = ret;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string s = textBox2.Text;
+            int n = (int)numericUpDown2.Value;
+            if (s != "")
+            {
+                int nRu, nEn;
+                int temp = n;
+                while (temp > 33)
+                {
+                    temp -= 33;
+                }
+                nRu = temp;
+                temp = n;
+                while (temp > 26)
+                {
+                    temp -= 26;
+                }
+                nEn = temp;
+                string ret = "";
+                for (int i = 0; i < s.Length; i++)
+                {
+                    bool ok = false;
+                    for (int j = 0; j < 33; j++)
+                    {
+                        if (rusAS[j] == s[i])
+                        {
+                            int ind = j - nRu;
+                            ok = true;
+                            if (ind < 0)
+                            {
+                                ind += 33;
+                            }
+                            ret += rusAS[ind];
+                            break;
+                        }
+                        else if (rusAB[j] == s[i])
+                        {
+                            int ind = j - nRu;
+                            ok = true;
+                            if (ind < 0)
+                            {
+                                ind += 33;
+                            }
+                            ret += rusAB[ind];
+                            break;
+                        }
+                    }
+                    for (int j = 0; j < 26; j++)
+                    {
+                        if (engAS[j] == s[i])
+                        {
+                            int ind = j - nEn;
+                            ok = true;
+                            if (ind < 0)
+                            {
+                                ind += 26;
+                            }
+                            ret += engAS[ind];
+                            break;
+                        }
+                        else if (engAB[j] == s[i])
+                        {
+                            int ind = j - nEn;
+                            ok = true;
+                            if (ind < 0)
+                            {
+                                ind += 26;
+                            }
+                            ret += engAB[ind];
+                            break;
+                        }
+                    }
+                    if (!ok)
+                    {
+                        ret += s[i];
+                    }
+                }
+                textBox2.Text = ret;
+            }
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -4,6 +4,10 @@ namespace _11_task
 {
     class Program
     {
+        char[] rusAS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя".ToCharArray();
+        char[] rusAB = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ".ToCharArray();
+        char[] engAS = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+        char[] engAB = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
         static int numEnter(string str)
         {
             int k;
@@ -25,10 +29,7 @@ namespace _11_task
             //1040 - А, 1071 - Я
             //97 - a, 122 - z
             //65 - A, 90 - Z
-            char[] rusAS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя".ToCharArray();
-            char[] rusAB = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ".ToCharArray();
-            char[] engAS = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
-            char[] engAB = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+            
             Console.Write("Введите строку для шифрования: ");
             string s = Console.ReadLine();
             int n = numEnter("Введите число сдвига: ");

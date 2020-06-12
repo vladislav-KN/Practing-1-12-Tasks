@@ -37,7 +37,6 @@ namespace Task_10
             Point  NewPoint = new Point (d);
             if (d.CompareTo(r.data) < 0) r.Left = NewPoint;
             else r.Right = NewPoint;
-            //  return NewPoint;
         }
         public void Run(out int level, out List<Point> list)
         {
@@ -54,7 +53,7 @@ namespace Task_10
                 {
                     x.Left.Level = x.Level + 1; //увеличиваем уровень
                     if (x.Left.Level > level)   
-                        level = x.Left.Level;   //сдвигаем текущий уровень если все элементы уже 
+                        level = x.Left.Level;   //сохраняем максимальный уровень
                     current.Enqueue(x.Left);
                 }
                 if (x.Right != null)
