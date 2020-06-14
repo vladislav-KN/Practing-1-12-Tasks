@@ -1,11 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace _7_task
 {
-    class Program
+    public class Program
     {
-        static bool NextSet(ref int[] a, int n, uint m)
+        public static void Generate(uint k, List<string> mass)
+        {
+            if (mass.Count > 0 && mass.Count <= 7)
+            {
+                int[] a = new int[k];
+                for (int i = 0; i < k; i++)
+                {
+                    a[i] = 1;
+                }
+                do
+                {
+                    string s = "";
+                    for (int i = 0; i < a.Length; i++)
+                    {
+                        s += mass[a[i] - 1] + " ";
+                    }
+                    Console.WriteLine(s);
+                } while (NextSet(ref a, mass.Count, k));
+            }
+        }
+        public static bool NextSet(ref int[] a, int n, uint m)
         {
             int j = (int)(m - 1);
             while (j >= 0 && a[j] == n)
@@ -15,10 +36,6 @@ namespace _7_task
             if (j < 0)
             {
                 return false;
-            }
-            if (a[j] >= n)
-            {
-                j--;
             }
             a[j]++;
             if (j == m - 1)
@@ -31,6 +48,7 @@ namespace _7_task
             }
             return true;
         }
+        [ExcludeFromCodeCoverage]
         static void Main(string[] args)
         {
             List<string> mass = new List<string>();
@@ -53,32 +71,16 @@ namespace _7_task
             } while (true);
             uint k;
             bool ok;
-            if (mass.Count > 0 && mass.Count<7)
+            if (mass.Count > 0 && mass.Count<=7)
             {
                 do
                 {
                     Console.WriteLine("Введите длину слов: ");
                     ok = uint.TryParse(Console.ReadLine(), out k);
                 } while (!ok);
-                int[] a = new int[k];
-                for (int i = 0; i < k; i++)
-                {
-                    a[i] = 1;
-                }
-                do
-                {
-                    string s = "";
-                    for (int i = 0; i < a.Length; i++)
-                    {
-                        s += mass[a[i] - 1] + " ";
-                    }
-                    Console.WriteLine(s);
-                } while (NextSet(ref a, mass.Count, k));
+                Generate(k,mass);
             }
-            {
-
-            }
-
+            
         }
     }
 }

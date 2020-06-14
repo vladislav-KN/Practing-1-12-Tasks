@@ -7,3 +7,12 @@ C:\Users\SAVS\source\repos\6 task\Task 5\obj\Debug\Task_5.Properties.Resources.r
 C:\Users\SAVS\source\repos\6 task\Task 5\obj\Debug\Task 6.csproj.GenerateResource.cache
 C:\Users\SAVS\source\repos\6 task\Task 5\obj\Debug\Task 5.exe
 C:\Users\SAVS\source\repos\6 task\Task 5\obj\Debug\Task 5.pdb
+C:\Users\SAVS\source\repos\6 task\Task 6\bin\Debug\Task 5.exe.config
+C:\Users\SAVS\source\repos\6 task\Task 6\bin\Debug\Task 5.exe
+C:\Users\SAVS\source\repos\6 task\Task 6\bin\Debug\Task 5.pdb
+C:\Users\SAVS\source\repos\6 task\Task 6\obj\Debug\Task 6.csprojAssemblyReference.cache
+C:\Users\SAVS\source\repos\6 task\Task 6\obj\Debug\Task_5.Form1.resources
+C:\Users\SAVS\source\repos\6 task\Task 6\obj\Debug\Task_5.Properties.Resources.resources
+C:\Users\SAVS\source\repos\6 task\Task 6\obj\Debug\Task 6.csproj.GenerateResource.cache
+C:\Users\SAVS\source\repos\6 task\Task 6\obj\Debug\Task 5.exe
+C:\Users\SAVS\source\repos\6 task\Task 6\obj\Debug\Task 5.pdb

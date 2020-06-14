@@ -6,16 +6,19 @@ using System.Text;
 
 namespace _10_task
 {
-    class Tree
+    public class Tree
     {
         public Point  root = null; //корень
 
         public Tree(params  int[] arr)
         {
-            root = new Point(arr[0]);//первый элемент
-            for (int i = 1; i < arr.Length; i++)
+            if (arr.Length > 0)
             {
-                Add(root, arr[i]);
+                root = new Point(arr[0]);//первый элемент
+                for (int i = 1; i < arr.Length; i++)
+                {
+                    Add(root, arr[i]);
+                }
             }
 
         }

@@ -1,18 +1,42 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace _4_task
 {
-    class Program
+    public class Program
     {
+        public static double result(double e)
+        {
+            Func<double, double> func = (x) => (Math.Pow(x, 4) + 2 * (Math.Pow(x, 3)) - x - 1);
+            double up = 1;
+            double under = 0;
+            double center;
+            double resUp;
+            double resUnder = func(under); 
+            while (Math.Abs(under - up) > e)
+            {
+                
+                center = (under + up) / 2;
+                resUp = func(center);
+                if (resUp * resUnder < 0)
+                {
+                    up = center;
+                }
+                else
+                {
+                    under = center;
+                    resUnder = resUp;
+                }
+            }
+            return under;
+        }
+        [ExcludeFromCodeCoverage]
         static void Main(string[] args)
         {
-            Func<double,double> func = (x) => (Math.Pow(x, 4)+2*(Math.Pow(x, 3))-x-1);
+           
             while (true)
             {
                 double e;
-                double up = 1;
-                double under = 0;
-                double center;
                 while (true)
                 {
                     Console.Write("Введите погрешность: ");
@@ -25,23 +49,8 @@ namespace _4_task
                             Console.WriteLine("Слишком большая точность");
                     }
                 }
-                double resUp;
-                double resUnder = func(under); ;
-                while (Math.Abs(under-up)>e)
-                {
-                    center = (under + up) / 2;
-                    resUp = func(center);
-                    if(resUp * resUnder < 0)
-                    {
-                        up = center;
-                    }
-                    else
-                    {
-                        under = center;
-                        resUnder = resUp;
-                    }
-                }
-                Console.WriteLine(under);
+                Console.WriteLine($"Число {result(e)} вычислено с точностью {e}");
+
             }
         }
     }

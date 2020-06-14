@@ -49,7 +49,7 @@ namespace Task_9
         {
             Random rnd = new Random();
             int search = rnd.Next(1, (int)numericUpDown1.Value+1);
-            bool find = List.Find(search);
+            bool find = List.Contains(search);
             if (find)
             {
                 MessageBox.Show($"{search} найден на {List.GetId(search)+1} месте","Поиск",MessageBoxButtons.OK,MessageBoxIcon.Information);

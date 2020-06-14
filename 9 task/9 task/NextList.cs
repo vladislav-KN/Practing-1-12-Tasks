@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace _9_task
 {
-    class NextList<T>
+    public class NextList<T>
     {
         public NextList(T data)
         {
@@ -24,14 +25,14 @@ namespace _9_task
         NextList<T> head; // головной/первый элемент
         NextList<T> tail; // последний/хвостовой элемент
         int count;  // количество элементов в списке
+        
 
-        // добавление элемента
-        public bool Find(T search)
+        public bool Contains(T search)
         {
             bool ret = false;
-            foreach(T some in this)
+            foreach (T some in this)
             {
-                if(some.Equals(search))
+                if (some.Equals(search))
                 {
                     ret = true;
                     break;
@@ -39,6 +40,24 @@ namespace _9_task
             }
             return ret;
         }
+        public int GetId(T search)
+        {
+            int ret = 0;
+            foreach (T some in this)
+            {
+                if (some.Equals(search))
+                {
+
+                    break;
+                }
+                ret += 1;
+            }
+            if (ret == count)
+                return -1;
+            else
+                return ret;
+        }
+        // добавление элемента
         public void Add(T data)
         {
             NextList<T> node = new NextList<T>(data);
@@ -81,6 +100,7 @@ namespace _9_task
                     }
                     else // если удаляется первый элемент
                     {
+
                         // если в списке всего один элемент
                         if (count == 1)
                         {
@@ -113,20 +133,8 @@ namespace _9_task
             count = 0;
         }
 
-        public bool Contains(T data)
-        {
-            NextList<T> current = head;
-            if (current == null) return false;
-            do
-            {
-                if (current.Data.Equals(data))
-                    return true;
-                current = current.Next;
-            }
-            while (current != head);
-            return false;
-        }
 
+        [ExcludeFromCodeCoverage]
         IEnumerator IEnumerable.GetEnumerator()
         {
             return ((IEnumerable)this).GetEnumerator();
@@ -145,6 +153,5 @@ namespace _9_task
             }
             while (current != head);
         }
-
     }
 }

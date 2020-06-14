@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace _10_task
 {
+    [ExcludeFromCodeCoverage]
     class Program
     {
         static int[] numEnter(string str)

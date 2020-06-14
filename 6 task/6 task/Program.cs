@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace _6_task
 {
-    class Program
+    public class Program
     {
-        static void Numbers(int a1,int a2,int a3, int M,int N,int L,int Ms,int Ns)
+        public static void Numbers(int a1,int a2,int a3, int M,int N,int L,int Ms,int Ns)
         {
             int ak = (7 / 3 * a3 + a2) / 2 * a1;
             if (N == 0)
@@ -25,6 +26,7 @@ namespace _6_task
             Numbers(a2, a3, ak, M - 1, N - 1, L, Ms, Ns);
             Console.WriteLine(ak);
         }
+        [ExcludeFromCodeCoverage]
         static int numEnter(string message)
         {
             int enter;
@@ -39,6 +41,7 @@ namespace _6_task
             }
             return enter;
         }
+        [ExcludeFromCodeCoverage]
         static void Main(string[] args)
         {
             int a1, a2, a3, m, n, l;

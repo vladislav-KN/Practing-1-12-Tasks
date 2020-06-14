@@ -23,15 +23,15 @@ namespace Task_5
             textBox1.Text = "";
             textBox2.Text = "";
             int n = (int) numericUpDown1.Value;
-            double[,] mass = new double[n, n];
+            int[,] mass = new int[n, n];
             int max;
-            double[] massOut = new double[n];
+            int[] massOut = new int[n];
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-                    mass[i, j] = ((double)rnd.Next(-1000, 1000)) + ((double)rnd.Next(-1000, 1000) )/ 1000;
-                    textBox1.Text += String.Format("{0,3}", mass[i, j]);
+                    mass[i, j] = rnd.Next(-100, 100);
+                    textBox1.Text += mass[i, j] + "  ";
                 }
                 textBox1.Text += Environment.NewLine;
             }
@@ -44,7 +44,7 @@ namespace Task_5
                 textBox2.Text += $"Строка {i} - Matrix[{i},{max}] = {mass[i, max]}" + Environment.NewLine;
                 massOut[i] = mass[i, max];
             }
-            double s = 0;
+            int s = 0;
             for (int i = 0; i < n; i++)
                 s += massOut[i] * massOut[n - i - 1];
             label3.Text = $"S = {s}";

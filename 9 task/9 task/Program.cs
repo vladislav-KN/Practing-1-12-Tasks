@@ -1,9 +1,22 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace _9_task
 {
-    class Program
+    public class Program
     {
+        public static void FillUp(int n, out CircularLinkedList<int> List)
+        {
+            
+            
+            List = new CircularLinkedList<int>();
+            for (int i = 1; i <= n; i++)
+            {
+                List.Add(i);
+            }
+ 
+        }
+        [ExcludeFromCodeCoverage]
         static int numEnter(string str)
         {
             bool ok;
@@ -19,18 +32,16 @@ namespace _9_task
             } while (!ok);
             return k;
         }
+        [ExcludeFromCodeCoverage]
         static void Main(string[] args)
         {
             while (true)
             {
                 int some;
                 int n = numEnter("Введите N: ");
-                Random rnd = new Random();
                 CircularLinkedList<int> List = new CircularLinkedList<int>();
-                for (int i = 1; i <= n; i++)
-                {
-                    List.Add(i);
-                }
+                FillUp(n,out List);
+                Random rnd = new Random();
                 foreach (int i in List)
                 {
                     Console.WriteLine(i);
@@ -53,22 +64,22 @@ namespace _9_task
                 }
                 some = rnd.Next(1, n + 1);
                 Console.WriteLine($"Поиск {some}");
-                Console.WriteLine(List.Find(some));
+                Console.WriteLine(List.Contains(some));
                 some = rnd.Next(1, n + 1);
                 Console.WriteLine($"Поиск {some}");
-                Console.WriteLine(List.Find(some));
+                Console.WriteLine(List.Contains(some));
                 some = rnd.Next(1, n + 1);
                 Console.WriteLine($"Поиск {some}");
-                Console.WriteLine(List.Find(some));
+                Console.WriteLine(List.Contains(some));
                 some = rnd.Next(1, n + 1);
                 Console.WriteLine($"Поиск {some}");
-                Console.WriteLine(List.Find(some));
+                Console.WriteLine(List.Contains(some));
                 some = rnd.Next(1, n + 1);
                 Console.WriteLine($"Поиск {some}");
-                Console.WriteLine(List.Find(some));
+                Console.WriteLine(List.Contains(some));
                 some = rnd.Next(1, n + 1);
                 Console.WriteLine($"Поиск {some}");
-                Console.WriteLine(List.Find(some));
+                Console.WriteLine(List.Contains(some));
             }
 
         }

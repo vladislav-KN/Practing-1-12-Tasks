@@ -16,23 +16,26 @@ namespace Task_3_WF
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public bool ok;
+        public void Compleat(double x, double y)
         {
-            double x = (double)numericUpDown1.Value;
-            double y = (double)numericUpDown2.Value;
             double res1 = Math.Pow(x, 2) + Math.Pow(y - 1, 2);
             double res2 = 1 - Math.Pow(x, 2);
-            double u;
-            if (res1 <= 1 && res2 >= y)
+            ok = res1 <= 1 && res2 >= y;
+            if (ok)
             {
-                MessageBox.Show($"Заданные x и y падают в область. U = {x-y}.","Ответ",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show($"Заданные x и y падают в область. U = {x - y}.", "Ответ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 MessageBox.Show($"Заданные x и y не падают в область. U = {x * y + 7}.", "Ответ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double x = (double)numericUpDown1.Value;
+            double y = (double)numericUpDown2.Value;
+            Compleat(x, y);
         }
     }
 }

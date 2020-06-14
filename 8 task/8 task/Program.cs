@@ -1,21 +1,94 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace _8_task
 {
-    class Program
+    public class Program
     {
-        static int GeneraitGraph(out Dictionary<int, int[]> firstGraph, out Dictionary<int, int[]> secondGraph, out int lenOfGrph)
+        public static void Run(int size)
         {
-            lenOfGrph = numEnter("Введите количество ребер в графах: ");
+            Dictionary<int, int[]> firstGRPH;
+            Dictionary<int, int[]> secondGRPH;
+            int n = GeneraitGraph(out firstGRPH, out secondGRPH, size);
+            int[,] GraphA = new int[n, n];
+            int[,] GraphB = new int[n, n];
+            //генерируем массив из списка
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    for (int k = 1; k <= size; k++)
+                    {
+                        if (firstGRPH[k][0] - 1 == i && firstGRPH[k][1] - 1 == j)
+                        {
+                            GraphA[i, j] = 1;
+                            GraphA[j, i] = 1;
+                            break;
+                        }
+
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    for (int k = 1; k <= size; k++)
+                    {
+                        if (secondGRPH[k][0] - 1 == i && secondGRPH[k][1] - 1 == j)
+                        {
+                            GraphB[i, j] = 1;
+                            GraphB[j, i] = 1;
+                        }
+
+                    }
+                }
+            }
+            int[,] graph = new int[n, n];
+
+            // Массив для варианта соответствия вершин 
+            int[] a = new int[n];
+            for (int i = 0; i < n; i++)
+                a[i] = i;
+
+            bool ok = false;
+            // Генерируем перестановку и проверяем, совпадают ли матрицы смежности
+            while (!ok)
+            {
+                ok = true;
+                bool result = Swap(ref a);   // Генерация новой перестановки вершин
+                                             // Составляем матрицу смежности по новой последовательности вершин и сравниваем с матрицей графа A
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < n; j++)
+                    {
+                        graph[i, j] = GraphB[a[i], a[j]];
+                        if (graph[i, j] != GraphA[i, j])
+                        {
+                            ok = false;
+                            break;
+                        }
+                    }
+                    if (!ok) break;
+                }
+            }
+            // Результат
+            Console.WriteLine("Биективное соответствие A = B:");
+            for (int i = 0; i < n; i++)
+                Console.WriteLine("{0} = {1} ", i + 1, a[i] + 1);
+        }
+        static int GeneraitGraph(out Dictionary<int, int[]> firstGraph, out Dictionary<int, int[]> secondGraph, int lenOfGrph)
+        {
+            
             firstGraph = new Dictionary<int, int[]>();//первый граф
             secondGraph = new Dictionary<int, int[]>();//второй граф
             Random rnd = new Random();
-            double s = Math.Round(1 + (Math.Pow((1 + 8 * lenOfGrph), 0.5)), 0);//если все вершины соединены
-            double min = Math.Round((s / 2 + 0.0000001), 0);//+0.0000001 для округления в большую сторону
-            s = Math.Round(3 + (Math.Pow((8 * lenOfGrph - 7), 0.5)), 0);
-            double max = Math.Round((s / 2 + 0.0000001), 0);
+            double s = Math.Ceiling(1 + (Math.Pow((1 + 8 * lenOfGrph), 0.5)));//если все вершины соединены
+            double min = Math.Ceiling(s / 2);//+0.0000001 для округления в большую сторону
+            s = Math.Ceiling(3 + Math.Pow((8 * lenOfGrph - 7), 0.5));
+            double max = Math.Ceiling(s / 2);
             int n = rnd.Next((int)min, (int)max + 1);//генерация случайного количества возможных ребер для связного графа
             Console.WriteLine("Первый граф");
             //создаем первый граф
@@ -124,6 +197,7 @@ namespace _8_task
             secondGraph = sorted2;
             return n;
         }
+        [ExcludeFromCodeCoverage]
         static int numEnter(string str)
         {
             bool ok;
@@ -132,7 +206,7 @@ namespace _8_task
             {
                 Console.Write(str);
                 ok = int.TryParse(Console.ReadLine(), out k);
-                if (k < 2)
+                if (k < 2 || k > 50)
                 {
                     ok = false;
                 }
@@ -166,81 +240,13 @@ namespace _8_task
                 }
             }
         }
+        [ExcludeFromCodeCoverage]
         static void Main(string[] args)
         {
             while (true) 
             { 
-                Dictionary<int, int[]> firstGRPH;
-                Dictionary<int, int[]> secondGRPH;
-                int size;
-                int n = GeneraitGraph(out firstGRPH, out secondGRPH, out size);
-                int[,] GraphA = new int[n, n];
-                int[,] GraphB = new int[n, n];
-                //генерируем массив из списка
-                for (int i = 0; i < n; i++)
-                {
-                    for (int j = 0; j < n; j++)
-                    {
-                        for (int k = 1; k <= size; k++)
-                        {
-                            if (firstGRPH[k][0] - 1 == i && firstGRPH[k][1] - 1 == j)
-                            {
-                                GraphA[i, j] = 1;
-                                GraphA[j, i] = 1;
-                                break;
-                            }
-
-                        }
-                    }
-                }
-                for (int i = 0; i < n; i++)
-                {
-                    for (int j = 0; j < n; j++)
-                    {
-                        for (int k = 1; k <= size; k++)
-                        {
-                            if (secondGRPH[k][0] - 1 == i && secondGRPH[k][1] - 1 == j)
-                            {
-                                GraphB[i, j] = 1;
-                                GraphB[j, i] = 1;
-                            }
-
-                        }
-                    }
-                }
-                int[,] graph = new int[n, n];
-
-                // Массив для варианта соответствия вершин 
-                int[] a = new int[n];
-                for (int i = 0; i < n; i++)
-                    a[i] = i;
-
-                bool ok = false;
-                // Генерируем перестановку и проверяем, совпадают ли матрицы смежности
-                while (!ok)
-                {
-                    ok = true;
-                    bool result = Swap(ref a);   // Генерация новой перестановки вершин
-                    // Составляем матрицу смежности по новой последовательности вершин и сравниваем с матрицей графа A
-                    for (int i = 0; i < n; i++)
-                    {
-                        for (int j = 0; j < n; j++)
-                        {
-                            graph[i, j] = GraphB[a[i], a[j]];
-                            if (graph[i, j] != GraphA[i, j])
-                            {
-                                ok = false;
-                                break;
-                            }
-                        }
-                        if (!ok) break;
-                    }
-                }
-                // Результат
-                Console.WriteLine("Биективное соответствие A = B:");
-                for (int i = 0; i < n; i++)
-                    Console.WriteLine("{0} = {1} ", i + 1, a[i] + 1);
-                Console.ReadLine();
+                int size = numEnter("Введите количество ребер в графах: ");
+                Run(size);
             }
         }
     }

@@ -26,22 +26,9 @@ namespace Task_9
         NextList<T> head; // головной/первый элемент
         NextList<T> tail; // последний/хвостовой элемент
         int count;  // количество элементов в списке
-        public T ById(int i)
-        {
-            if(i<0 || i > count)
-            {
-                throw new IndexOutOfRangeException();
-            }
-            CircularLinkedList<T> m = this;
-            while (i != 0)
-            {
-                m.head = m.head.Next;
-                i--;
-            }
-            return m.head.Data;
-        }
         
-        public bool Find(T search)
+        
+        public bool Contains(T search)
         {
             bool ret = false;
             foreach (T some in this)
@@ -147,19 +134,7 @@ namespace Task_9
             count = 0;
         }
 
-        public bool Contains(T data)
-        {
-            NextList<T> current = head;
-            if (current == null) return false;
-            do
-            {
-                if (current.Data.Equals(data))
-                    return true;
-                current = current.Next;
-            }
-            while (current != head);
-            return false;
-        }
+         
 
         IEnumerator IEnumerable.GetEnumerator()
         {
