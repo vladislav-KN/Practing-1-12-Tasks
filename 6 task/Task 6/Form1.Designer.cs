@@ -88,6 +88,16 @@
             // L
             // 
             this.L.Location = new System.Drawing.Point(242, 65);
+            this.L.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.L.Minimum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            -2147483648});
             this.L.Name = "L";
             this.L.Size = new System.Drawing.Size(120, 20);
             this.L.TabIndex = 2;
@@ -245,7 +255,7 @@
             this.Controls.Add(this.M);
             this.Controls.Add(this.A1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Вычисление последовательности";
             ((System.ComponentModel.ISupportInitialize)(this.A1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.M)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.L)).EndInit();

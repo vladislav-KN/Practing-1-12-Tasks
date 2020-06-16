@@ -22,23 +22,32 @@ namespace Window
         {
             if (textBox1.Text!="") 
             {
-                if (int.Parse(textBox1.Text) > 0)
+                int set;
+                bool ok = int.TryParse(textBox1.Text, out set);
+                if (ok)
                 {
-                    using (StreamWriter sw = new StreamWriter("INPUT.TXT"))
+                    if (set > 0)
                     {
-                        sw.WriteLine(textBox1.Text);
+                        using (StreamWriter sw = new StreamWriter("INPUT.TXT"))
+                        {
+                            sw.WriteLine(textBox1.Text);
+                        }
+                        Func.Some();
+                        int get;
+                        using (StreamReader sw = new StreamReader("OUTPUT.TXT"))
+                        {
+                            get = int.Parse(sw.ReadLine());
+                        }
+                        MessageBox.Show($"На {textBox1.Text} месте стоит число {get}", "Ответ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    Func.Some();
-                    int get;
-                    using (StreamReader sw = new StreamReader("OUTPUT.TXT"))
+                    else
                     {
-                        get = int.Parse(sw.ReadLine());
+                        MessageBox.Show("Введите число большее 0", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    MessageBox.Show($"На {textBox1.Text} месте стоит число {get}", "Ответ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Введите число большее 0", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Превышено максимальное значение для ввода числа", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

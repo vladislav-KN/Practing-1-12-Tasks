@@ -32,7 +32,6 @@ namespace Task_9
         private void AddClickBTN(object sender, EventArgs e)
         {
             textBox1.Text = " "; 
-            int some;
             int n = (int)numericUpDown1.Value;
              
             List = new CircularLinkedList<int>();

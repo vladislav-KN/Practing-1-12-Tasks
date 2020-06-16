@@ -22,11 +22,13 @@ namespace Window
         {
             if (textBox1.Text!="") 
             {
-                if (int.Parse(textBox1.Text) > 0)
+                int set;
+                if(int.TryParse(textBox1.Text, out set))
+                if (set > 0)
                 {
                     using (StreamWriter sw = new StreamWriter("INPUT.TXT"))
                     {
-                        sw.WriteLine(textBox1.Text);
+                        sw.WriteLine(set);
                     }
                     Func.Some();
                     int get;

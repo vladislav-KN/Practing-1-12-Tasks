@@ -88,8 +88,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Подсчет элементов на каждом уровне в дереве";
             this.ResumeLayout(false);
             this.PerformLayout();
 

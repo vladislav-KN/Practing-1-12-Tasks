@@ -31,7 +31,7 @@ namespace Task_5
             }
             else if (ak > L)
             {
-                form.textBox1.Text += ak + Environment.NewLine;
+                
                 MessageBox.Show($"Число {ak} больше числа L, который равен {L}", "Причина остановки", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }

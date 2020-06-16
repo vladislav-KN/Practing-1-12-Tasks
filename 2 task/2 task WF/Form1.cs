@@ -21,34 +21,42 @@ namespace _2_task_WF
         {
             if (textBox1.Text != "" && textBox2.Text != "")
             {
-                if (int.Parse(textBox1.Text) >= 0 && int.Parse(textBox2.Text) >= 2)
-                {
-                    using (StreamWriter sw = new StreamWriter("INPUT.TXT"))
+                int set1, set2;
+                bool ok1 = int.TryParse(textBox1.Text, out set1);
+                bool ok2 = int.TryParse(textBox1.Text, out set2);
+                if (ok1 && ok2) {
+                    if (set1 >= 0 && set2 >= 2)
                     {
-                        sw.WriteLine(textBox1.Text + " " + textBox2.Text);
+                        using (StreamWriter sw = new StreamWriter("INPUT.TXT"))
+                        {
+                            sw.WriteLine(textBox1.Text + " " + textBox2.Text);
+                        }
+                        Task2.Compl();
+                        int get;
+                        using (StreamReader sw = new StreamReader("OUTPUT.TXT"))
+                        {
+                            get = int.Parse(sw.ReadLine());
+                        }
+                        MessageBox.Show($"2^(2^{textBox1.Text}) по модулю {textBox2.Text} = {get}", "Ответ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    Task2.Compl();
-                    int get;
-                    using (StreamReader sw = new StreamReader("OUTPUT.TXT"))
+                    else if (int.Parse(textBox2.Text) >= 2)
                     {
-                        get = int.Parse(sw.ReadLine());
+                        MessageBox.Show("Введите число большее 0", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBox1.Select();
                     }
-                    MessageBox.Show($"2^(2^{textBox1.Text}) по модулю {textBox2.Text} = {get}", "Ответ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (int.Parse(textBox2.Text) >= 2)
+                    else if (int.Parse(textBox1.Text) >= 0)
+                    {
+                        MessageBox.Show("Введите число большее 2", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBox2.Select();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Введите число большее 0 в первое поле ввода", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Введите число большее 2 во второе поле ввода", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    } 
+                }else
                 {
-                    MessageBox.Show("Введите число большее 0", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    textBox1.Select();
-                }
-                else if (int.Parse(textBox1.Text) >= 0)
-                {
-                    MessageBox.Show("Введите число большее 2", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    textBox2.Select();
-                }
-                else
-                {
-                    MessageBox.Show("Введите число большее 0 в первое поле ввода", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    MessageBox.Show("Введите число большее 2 во второе поле ввода", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Превышен придел ввода числа", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }else if(textBox1.Text == "")
             {

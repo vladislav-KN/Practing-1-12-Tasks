@@ -21,10 +21,7 @@ namespace Task_4
         {
             Func<double, double> func = (x) => (Math.Pow(x, 4) + 2 * (Math.Pow(x, 3)) - x - 1);
             double E = (double)numericUpDown1.Value;
-            if (!(E > 0))
-            {
-                E = 0;
-            }
+
             double up = 1;
             double under = 0;
             double center;
