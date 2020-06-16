@@ -1,0 +1,8 @@
+C:\Users\SAVS\source\repos\3 task\.vs\3 task\v16\lut\0\b\Task 3 WF\bin\Debug\Task 3 WF.exe.config
+C:\Users\SAVS\source\repos\3 task\.vs\3 task\v16\lut\0\b\Task 3 WF\bin\Debug\Task 3 WF.exe
+C:\Users\SAVS\source\repos\3 task\.vs\3 task\v16\lut\0\i\Task 3 WF\Debug\Task 3 WF.csprojAssemblyReference.cache
+C:\Users\SAVS\source\repos\3 task\.vs\3 task\v16\lut\0\i\Task 3 WF\Debug\Task_3_WF.Form1.resources
+C:\Users\SAVS\source\repos\3 task\.vs\3 task\v16\lut\0\i\Task 3 WF\Debug\Task_3_WF.Properties.Resources.resources
+C:\Users\SAVS\source\repos\3 task\.vs\3 task\v16\lut\0\i\Task 3 WF\Debug\Task 3 WF.csproj.GenerateResource.cache
+C:\Users\SAVS\source\repos\3 task\.vs\3 task\v16\lut\0\i\Task 3 WF\Debug\Task 3 WF.csproj.CopyComplete
+C:\Users\SAVS\source\repos\3 task\.vs\3 task\v16\lut\0\i\Task 3 WF\Debug\Task 3 WF.exe
