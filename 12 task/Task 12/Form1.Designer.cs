@@ -133,7 +133,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(11, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 13);
+            this.label2.Size = new System.Drawing.Size(195, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Исходный не упорядоченный массив";
             // 
@@ -190,7 +190,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(11, 221);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(259, 13);
+            this.label7.Size = new System.Drawing.Size(265, 13);
             this.label7.TabIndex = 12;
             this.label7.Text = "Исходный упорядоченный по возрастанию массив";
             // 
@@ -256,7 +256,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(11, 359);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(243, 13);
+            this.label10.Size = new System.Drawing.Size(249, 13);
             this.label10.TabIndex = 18;
             this.label10.Text = "Исходный упорядоченный по убыванию массив";
             // 
@@ -330,8 +330,9 @@
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Сравнение сортировок";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
