@@ -6896,11 +6896,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SAVS\\source\\repos\\7 task\\Tests\\Tests.csproj",
+      "projectUniqueName": "C:\\Users\\SAVS\\Documents\\GitHub\\Practing-1-12-Tasks\\7 task\\Tests\\Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "C:\\Users\\SAVS\\source\\repos\\7 task\\Tests\\Tests.csproj",
+      "projectPath": "C:\\Users\\SAVS\\Documents\\GitHub\\Practing-1-12-Tasks\\7 task\\Tests\\Tests.csproj",
       "packagesPath": "C:\\Users\\SAVS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SAVS\\source\\repos\\7 task\\Tests\\obj\\",
+      "outputPath": "C:\\Users\\SAVS\\Documents\\GitHub\\Practing-1-12-Tasks\\7 task\\Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\SAVS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6916,8 +6916,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\SAVS\\source\\repos\\7 task\\7 task\\7 task.csproj": {
-              "projectPath": "C:\\Users\\SAVS\\source\\repos\\7 task\\7 task\\7 task.csproj"
+            "C:\\Users\\SAVS\\Documents\\GitHub\\Practing-1-12-Tasks\\7 task\\7 task\\7 task.csproj": {
+              "projectPath": "C:\\Users\\SAVS\\Documents\\GitHub\\Practing-1-12-Tasks\\7 task\\7 task\\7 task.csproj"
             }
           }
         }

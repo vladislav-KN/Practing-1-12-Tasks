@@ -116,7 +116,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
-            this.Text = "Все сочитания из N по K";
+            this.Text = "Все сочетания из N по K";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

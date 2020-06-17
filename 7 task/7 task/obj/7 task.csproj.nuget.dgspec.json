@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SAVS\\source\\repos\\7 task\\7 task\\7 task.csproj": {}
+    "C:\\Users\\SAVS\\Documents\\GitHub\\Practing-1-12-Tasks\\7 task\\7 task\\7 task.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SAVS\\source\\repos\\7 task\\7 task\\7 task.csproj": {
+    "C:\\Users\\SAVS\\Documents\\GitHub\\Practing-1-12-Tasks\\7 task\\7 task\\7 task.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SAVS\\source\\repos\\7 task\\7 task\\7 task.csproj",
+        "projectUniqueName": "C:\\Users\\SAVS\\Documents\\GitHub\\Practing-1-12-Tasks\\7 task\\7 task\\7 task.csproj",
         "projectName": "7 task",
-        "projectPath": "C:\\Users\\SAVS\\source\\repos\\7 task\\7 task\\7 task.csproj",
+        "projectPath": "C:\\Users\\SAVS\\Documents\\GitHub\\Practing-1-12-Tasks\\7 task\\7 task\\7 task.csproj",
         "packagesPath": "C:\\Users\\SAVS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SAVS\\source\\repos\\7 task\\7 task\\obj\\",
+        "outputPath": "C:\\Users\\SAVS\\Documents\\GitHub\\Practing-1-12-Tasks\\7 task\\7 task\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\SAVS\\AppData\\Roaming\\NuGet\\NuGet.Config",
